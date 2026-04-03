@@ -9,7 +9,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(225deg,rgb(252, 252, 252),rgb(48, 48, 48));
+    background: linear-gradient(125deg,rgb(252, 252, 252),rgb(61, 11, 11));
 }
 
 /* Navigation bar */
@@ -235,6 +235,7 @@ nav a.active {
 }
 .locations h1{
     text-align: center;
+    font-family: 'Courier New', Courier, monospace;
     color: white;
 }            
 .location-list{
@@ -270,34 +271,39 @@ nav a.active {
     display: flex;
     justify-content: center;
     position: relative;
-    padding: 60px 20px;
+    font-family: 'Courier New', Courier, monospace;
 }
 .contact img{
     position:absolute;
-    width: fit-content;
-    height: auto;
-    
+    width: 450px;
+    top: 0px;
+    height: 650px;   
+    opacity: 0.8;
+
 }
-#kettlebell{
-    left: 5%;
-    bottom: 10%;
+#cont-1{
+    right: 0;
+    bottom: 5%;
 }
-#Dumbells{
-    right: 5%;
-    top: 5%;
+
+#cont-2{
+    left: 0;
+    bottom: 5%;
 }
 .contact .form{
+    position:relative;
+    bottom: 30px;
+    right: 10px;
     display: flex;
     background: white;
     border:3px solid #000;
-    border-radius: 10px;
     align-items: center;
     flex-direction: column;
     gap: 30px;
     margin: 30px;
     width: 400px;
     max-width: 100%;
-    height: auto;
+    height: 650px;
     padding: 20px;
 }
 .contact input{
@@ -309,7 +315,7 @@ nav a.active {
     text-align: start;
 }
 #message-input{
-    text-overflow: clip;
+    height: 100px;
 }
 #send-btn{
     width: 100%;
@@ -323,6 +329,7 @@ nav a.active {
 /* About Section */
 .about{
     display: flex;
+    bottom: 20px;
     flex-direction: row;
     gap: 30px;
     padding:30px;
@@ -466,110 +473,29 @@ nav a.active {
   color: #777;
 }
 
-/* Responsive footer */
-@media (max-width: 768px) {
-  .footer-top {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .footer-brand,
-  .footer-links,
-  .footer-contact,
-  .footer-social {
-    width: 100%;
-  }
-
-  .footer {
-    padding: 30px 15px 15px;
-  }
-}
-
-@media (max-width: 480px) {
-  .footer-brand h2 {
-    font-size: 18px;
-  }
-
-  .footer-links h3,
-  .footer-contact h3,
-  .footer-social h3 {
-    font-size: 15px;
-  }
-
-  .footer-links a,
-  .footer-contact p {
-    font-size: 13px;
-  }
-
-  .social-icons a {
-    width: 30px;
-    height: 30px;
-    font-size: 12px;
-  }
-}
 /* ========================= */
 /*        RESPONSIVE         */
 /* ========================= */
-
-/* Tablets and below */
-@media (max-width: 992px) {
-
-    .nav-container {
-        flex-wrap: wrap;
-        justify-content: space-between;
-        padding: 10px 15px;
-    }
-
-    nav {
-        font-size: 16px;
-        flex-wrap: wrap;
-        justify-content: flex-end;
-    }
-
-    nav a {
-        margin: 10px;
-    }
-
-    #member-btn {
-        width: 160px;
-        height: 60px;
-        font-size: 16px;
-        margin-top: 10px;
-    }
-
-    .bg-text h1{
-        font-size: 32px;
-    }
-    .bg-text p{
-        font-size: 16px;
-    }
-
-    .card {
-        width: 320px;
-        height: 380px;
-        margin: 0 10px 20px 0;
-        font-size: 20px;
-    }
-
-    .location-card{
-        width: 260px;
-        height: 180px;
-        font-size: 18px;
-    }
-
-    .contact img{
-        width: 130px;
-    }
-}
 
 /* Mobile phones */
 @media (max-width: 600px) {
 
     .nav-container {
-        position: static;
+        position: fixed;      /* keep it on top */
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
         flex-direction: column;
         align-items: flex-start;
         opacity: 1;
+    }
+
+    /* push content down so it's not hidden by fixed nav */
+    .hero {
+        margin-top: 120px; /* adjust if nav is taller/shorter */
+        height: 500px;
+        min-height: 320px;
     }
 
     .heading {
@@ -593,11 +519,6 @@ nav a.active {
         width: 100%;
         height: 50px;
         margin: 10px 0 0 0;
-    }
-
-    .hero {
-        height: 500px;
-        min-height: 320px;
     }
 
     .bg-text {
@@ -643,7 +564,7 @@ nav a.active {
     }
 
     .contact img{
-        display: none; /* hide decorative images on small screens */
+        display: none;
     }
 
     .contact .form{
@@ -651,8 +572,14 @@ nav a.active {
         width: 100%;
     }
 
+    .about{
+        flex-direction: column;
+        padding: 20px 10px;
+    }
+
     .about h2,
     .about-text{
         text-align: start;
+        font-size: 14px;
     }
 }
